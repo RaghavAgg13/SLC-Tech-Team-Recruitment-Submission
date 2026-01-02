@@ -1,0 +1,134 @@
+volumes:
+  subgraphs_data:
+
+services:
+  mongo:
+    image: mongo:4.4
+    volumes:
+      - ./.mounted/mongo:/data/db
+    env_file:
+      - ./.env
+    ports:
+      - 27017:27017
+
+  # mongo-express:
+  #   image: mongo-express:latest
+  #   ports:
+  #     - 8081:8081
+  #   depends_on:
+  #     - mongo
+  #   env_file:
+  #     - ./.env
+
+  gateway:
+    build: ./gateway
+    volumes:
+      - subgraphs_data:/subgraphs:ro
+    env_file:
+      - ./.env
+      - ./gateway/.env
+    depends_on:
+      - interfaces
+      - clubs
+      - members
+      - events
+      - users
+
+  nginx:
+    build: ./nginx
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+    ports:
+      - 80:80
+    depends_on:
+#       - auth
+#       - files
+      - gateway
+      - web
+
+  web:
+    build:
+      context: ./web
+      dockerfile: dev.Dockerfile
+      args:
+        - ENV=development
+    volumes:
+      - ./web:/web
+    env_file:
+      - ./.env
+      - ./web/.env
+
+  # apis
+  # apis
+#   auth:
+#     build: ./apis/auth-dev
+#     volumes:
+#       - ./apis/auth-dev:/app
+#       - ./config:/app/config
+#     env_file:
+#       - ./.env
+#       - ./apis/auth-dev/.env
+
+#   files:
+#     build: ./apis/files
+#     volumes:
+#       - ./.mounted/files:/files
+#       - ./static_files:/static_files:ro
+#       - ./config:/app/config
+#     env_file:
+#       - ./.env
+#       - ./apis/files/.env
+
+  # subgraphs
+  interfaces:
+    build: ./subgraphs/interfaces
+    volumes:
+      - subgraphs_data:/subgraphs
+      - ./config:/app/config
+    depends_on:
+      - mongo
+    env_file:
+      - ./.env
+      - ./subgraphs/interfaces/.env
+
+  clubs:
+    build: ./subgraphs/clubs
+    volumes:
+      - subgraphs_data:/subgraphs
+      - ./config:/app/config
+    depends_on:
+      - mongo
+    env_file:
+      - ./.env
+
+  members:
+    build: ./subgraphs/members
+    volumes:
+      - subgraphs_data:/subgraphs
+      - ./config:/app/config
+    depends_on:
+      - mongo
+    env_file:
+      - ./.env
+
+  events:
+    build: ./subgraphs/events
+    volumes:
+      - subgraphs_data:/subgraphs
+      - ./config:/app/config
+    depends_on:
+      - mongo
+    env_file:
+      - ./.env
+
+  users:
+    build: ./subgraphs/users
+    volumes:
+      - subgraphs_data:/subgraphs
+      - ./config:/app/config
+    depends_on:
+      - mongo
+    env_file:
+      - ./.env
+    dns:
+      - 10.4.20.204

@@ -1,0 +1,140 @@
+/*
+Theme Name: ShoeStop Theme
+Author: SLC Recruitment
+Description: Custom theme based on ShoeStop project.
+Version: 1.0
+*/
+
+/* Import ShoeStop Styles */
+@import url("shoestop-style.css");
+@import url("main.css");
+
+/* =========================================
+   Theme Overrides & Structure
+   ========================================= */
+
+/* 1. Global Layout Fixes */
+body {
+    margin: 0;
+    overflow-x: hidden;
+    font-family: "Montserrat", sans-serif;
+}
+
+.container {
+    width: 94% !important;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+body.admin-bar .container header {
+    margin-top: 32px;
+}
+
+.slc-main-content {
+    min-height: 60vh;
+    padding: 2em;
+}
+
+.container header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    width: 100%;
+}
+
+.container header nav {
+    position: static !important;
+    transform: none !important;
+    height: auto !important;
+    width: auto !important;
+    background: transparent !important;
+    display: block !important;
+}
+
+.logo {
+    font-weight: 700;
+    color: black;
+    font-size: 1.5rem;
+    text-decoration: none;
+    margin: 0;
+}
+
+.logo span.stop {
+    color: red;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black !important;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 0.5em 1.5em;
+    position: relative;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: red;
+}
+
+
+footer {
+    background-color: #023e8a;
+    color: white;
+    padding: 0.5em 3em;
+    margin-top: 2em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+footer .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer a,
+footer ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+footer .logo {
+    color: white;
+}
+
+footer .logo span.stop {
+    color: red;
+}
+
+footer ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+footer .shareables i {
+    font-size: 1.5rem;
+    margin-left: 15px;
+    cursor: pointer;
+    color: white;
+    transition: transform 0.2s;
+}
+
+footer .shareables i:hover {
+    transform: translateY(-3px);
+    color: #CAF0F8;
+}
