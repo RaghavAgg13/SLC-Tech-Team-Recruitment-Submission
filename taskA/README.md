@@ -54,3 +54,21 @@ A Python script (`populate_data.py`) was created to automate the process:
 1.  **Clubs**: Creates 3 clubs (Coding, Music, Dance).
 2.  **Members**: Adds 3 members per club (1 POC, 2 regular).
 3.  **Events**: Creates 2 events per club.
+
+---
+
+## 4. Screenshots
+
+### Localhost Running
+![Localhost running with Docker](../images/localhost.png)
+
+### All Clubs View
+![All clubs displayed](../images/all%20clubs.png)
+
+### Club Details
+![Club details page - view 1](../images/club1%20%231.png)
+
+![Club details page - view 2](../images/club1%20%232.png)
+
+### All Events View
+![All events displayed](../images/all%20events.png)

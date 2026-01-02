@@ -94,3 +94,37 @@ The following files have mock user injection to bypass authentication:
 - `subgraphs/events/mutations/events.py` - createEvent, progressEvent
 
 **WARNING:** These bypasses are for development only. Remove before production use.
+
+---
+
+## Screenshots
+
+### Project Structure
+![Project directory structure](images/directory.png)
+
+### Task A - Local Docker Setup
+
+#### Localhost Running
+![Localhost running with Docker](images/localhost.png)
+
+#### All Clubs View
+![All clubs displayed](images/all%20clubs.png)
+
+#### Club Details
+![Club details page - view 1](images/club1%20%231.png)
+
+![Club details page - view 2](images/club1%20%232.png)
+
+#### All Events View
+![All events displayed](images/all%20events.png)
+
+### Task B - WordPress Integration
+
+#### Clubs Page (WordPress)
+![Clubs page in WordPress](images/club_wordpress.png)
+
+#### Events Page (WordPress)
+![Events page in WordPress](images/events_wordpress.png)
+
+#### Events Page with Search (WordPress)
+![Events search in WordPress](images/events_search_wordpress.png)

@@ -33,3 +33,16 @@ This directory contains the WordPress project setup and custom code.
 ## 4. Integration Details
 - The WordPress container connects to the Task A Gateway via `host.docker.internal`.
 - The plugin sends POST requests to `http://host.docker.internal/graphql` to fetch live data.
+
+---
+
+## 5. Screenshots
+
+### Clubs Page (WordPress)
+![Clubs page in WordPress](../images/club_wordpress.png)
+
+### Events Page (WordPress)
+![Events page in WordPress](../images/events_wordpress.png)
+
+### Events Page with Search (WordPress)
+![Events search in WordPress](../images/events_search_wordpress.png)
